@@ -1,6 +1,10 @@
 ### RNN
 RNN to rodzaj sieci neuronowych zaprojektowanych specjalnie do pracy z danymi sekwencyjnymi. Ich kluczową cechą jest zdolność do wykorzystywania wewnętrznej pamięci w celu przetwarzania sekwencji, co sprawia, że są skuteczne w zadaniach takich jak modelowanie języka, predykcja szeregów czasowych czy generowanie tekstu.
 
+<div style="text-align: center;">
+    <img src="rnn_model_summary.png" alt="Architekruta modelu">
+</div>
+
 #### Charakterystyka RNN:
 - Przetwarzanie sekwencyjne: RNN przetwarza dane element po elemencie, zachowując "stan ukryty", który przechowuje informacje o wcześniejszych krokach sekwencji.
 - Współdzielenie parametrów: W przeciwieństwie do sieci feedforward, RNN używa tych samych parametrów na każdym kroku czasowym, co ułatwia generalizację dla różnych długości sekwencji.
@@ -13,9 +17,27 @@ RNN to rodzaj sieci neuronowych zaprojektowanych specjalnie do pracy z danymi se
 - Model oparty na architekturze RNN z dwoma warstwami SimpleRNN osiągnął średnią stratę (loss) wynoszącą 1.4786 oraz perplexity równą 2.7868.
 - W miarę postępu treningu dokładność modelu znacznie wzrosła, osiągając stabilny poziom po około 150 epokach, co wskazuje na skuteczną konwergencję.
 - Funkcja strat (loss) spadła wykładniczo w pierwszych 50 epokach, a następnie stabilizowała się, co oznacza, że model skutecznie nauczył się reprezentacji danych.
+
+<div style="text-align: center;">
+    <img src="acc_los_vs_epoch_1.png" alt="Wykres dokładności i strat">
+</div>
+
 2. Analiza jakości generowanego tekstu
 - Generowany tekst charakteryzuje się poprawną strukturą składniową, ale ograniczoną spójnością semantyczną. Model często wprowadza losowe słowa, które nie mają logicznego związku z treścią wejściową.
 - Wygenerowane frazy są zgodne z danymi treningowymi (pochodzącymi z książki "Władca Pierścieni"), ale wprowadzają powtarzalność i brak długoterminowego związku między zdaniami.
+
+<div style="text-align: center;">
+    <img src="generated_text_01.png" alt="Architekruta modelu">
+</div>
+
+<div style="text-align: center;">
+    <img src="generated_text_02.png" alt="Architekruta modelu">
+</div>
+
+<div style="text-align: center;">
+    <img src="generated_text_03.png" alt="Architekruta modelu">
+</div>
+
 3. Wady zastosowanej architektury
 - Ograniczenia RNN: Model nie radzi sobie dobrze z długoterminowymi zależnościami, co jest typowe dla architektury RNN. Złożone struktury narracyjne wymagają mechanizmów lepiej zapamiętujących dłuższe zależności.
 - Problem ze spójnością: Generowany tekst często traci kontekst po kilku zdaniach, co wynika z ograniczonej pamięci modelu.

@@ -65,3 +65,10 @@ Celem niniejszego projektu było zaimplementowanie modelu do generacji tekstu, b
 7. **Ocena modelu**:
    - Zaimplementowano funkcję _calculate_cross_entropy_loss_, obliczającą średnią entropię krzyżową dla testowych sekwencji.
    - Obliczono wartość _perplexity_, będącą miarą jakości generowanego tekstu (im mniejsza, tym lepsza).
+
+## Wyniki
+
+
+![RNN plot](results/documentation/RNN_plot.png)
+
+![GRU plot](results/documentation/GRU_plot.png)

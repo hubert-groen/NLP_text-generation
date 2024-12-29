@@ -24,25 +24,25 @@ Celem niniejszego projektu było zaimplementowanie modelu do generacji tekstu, b
 ## Etapy implementacji
 1. **Przygotowanie danych**:
    - Zdefiniowano źródło tekstu - pliku `.txt`.
-   - Utworzeno mapowania znaków na indeksy (char2index) oraz indeksów na znaki (index2char).
+   - Utworzeno mapowania znaków na indeksy (_char2index_) oraz indeksów na znaki (_index2char_).
    - Przekształcono tekst na ciąg liczb odpowiadających indeksom znaków.
 
 2. **Podział danych na sekwencje**:
    - Ustalono długość sekwencji na 100 znaków.
    - Utworzono dataset TensorFlow z sekwencjami o stałej długości (101 znaków, w tym jeden znak docelowy).
    - Podzielono sekwencje na pary wejście-cel, gdzie:
-      - input_text zawiera 100 pierwszych znaków.
-      - target_text zawiera kolejne 100 znaków (przesunięcie o 1).
+      - _input_text_ zawiera 100 pierwszych znaków.
+      - _target_text_ zawiera kolejne 100 znaków (przesunięcie o 1).
 
 3. **Przygotowanie danych do treningu**:
-   - Dataset został przetasowany i podzielony na batch'e o wielkości 512 z buforowaniem 10 000 próbek.
+   - Dataset został przetasowany i podzielony na batch'e (testowane wielkości 512-2048) z buforowaniem 10 000 próbek.
    - Określono parametry modelu:
-      - Rozmiar słownika (vocab_size): liczba unikalnych znaków.
-      - Wymiar osadzania (embedding_dim): 300.
-      - Liczba jednostek w warstwach rekurencyjnych (rnn_units): 1024 dla dwóch warstw.
+      - Rozmiar słownika (_vocab_size_): liczba unikalnych znaków.
+      - Wymiar osadzania (_embedding_dim_): 300.
+      - Liczba jednostek w warstwach rekurencyjnych (_rnn_units_): 512 lub 1024 dla dwóch warstw.
 
 4. **Implementacja modelu**:
-   -   Zdefiniowano funkcję build_model, pozwalającą na budowanie modeli z różnymi typami warstw rekurencyjnych:
+   -   Zdefiniowano funkcję _build_model_, pozwalającą na budowanie modeli z różnymi typami warstw rekurencyjnych:
          - GRU
          - LSTM
          - RNN
@@ -53,16 +53,15 @@ Celem niniejszego projektu było zaimplementowanie modelu do generacji tekstu, b
       - Warstwy gęstej (Dense) przewidującej rozkład prawdopodobieństwa dla kolejnego znaku.
 
 5. **Trenowanie modelu**:
-   - Zdefiniowano funkcję straty, używającą sparse_categorical_crossentropy z opcją from_logits=True.
-   - Skonfigurowano model z optymalizatorem Adam.
-   - Utworzono callback do zapisywania wag modelu po każdej epoce w folderze ./checkpoints_GRU.
-   - Przeprowadzono trening modelu przez 20 epok.
+   - Zdefiniowano funkcję straty, używającą _sparse_categorical_crossentropy_.
+   - Skonfigurowano model z optymalizatorem _Adam_.
+   - Przeprowadzono trening modelu przez 200 epok.
 
 6. **Generacja tekstu**:
    - Załadowano wagi wytrenowanego modelu.
-   - Zdefiniowano funkcję generate_text, generującą tekst o długości 1000 znaków na podstawie podanego ciągu startowego.
+   - Zdefiniowano funkcję _generate_text_, generującą tekst o długości 1000 znaków na podstawie podanego ciągu startowego.
    - Funkcja wykorzystuje rozkład prawdopodobieństwa, aby wprowadzić element losowości do generacji.
 
 7. **Ocena modelu**:
-   - Zaimplementowano funkcję calculate_cross_entropy_loss, obliczającą średnią cross-entropię dla testowych sekwencji.
-   - Obliczono wartość perplexity, będącą miarą jakości generowanego tekstu (im mniejsza, tym lepsza).
+   - Zaimplementowano funkcję _calculate_cross_entropy_loss_, obliczającą średnią entropię krzyżową dla testowych sekwencji.
+   - Obliczono wartość _perplexity_, będącą miarą jakości generowanego tekstu (im mniejsza, tym lepsza).

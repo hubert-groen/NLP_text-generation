@@ -1,4 +1,4 @@
 checkpoints_GRU/
 training_checkpoints/
 venv/
-checkpoints_RNN/
+checkpoints_*/

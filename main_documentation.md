@@ -43,9 +43,9 @@ Celem niniejszego projektu było zaimplementowanie modelu do generacji tekstu, b
 
 4. **Implementacja modelu**:
    -   Zdefiniowano funkcję _build_model_, pozwalającą na budowanie modeli z różnymi typami warstw rekurencyjnych:
-         - GRU
-         - LSTM
          - RNN
+         - LSTM
+         - GRU
 
    - Model składa się z:
       - Warstwy osadzania (Embedding).
@@ -69,6 +69,50 @@ Celem niniejszego projektu było zaimplementowanie modelu do generacji tekstu, b
 ## Wyniki
 
 
-![RNN plot](results/documentation/RNN_plot.png)
+<figure>
+  <img src="results/documentation/RNN_plot.png" alt="RNN plot">
+  <figcaption style="text-align: center;">RNN: accuracy and loss over epochs</figcaption>
+</figure>
+<br><br>
 
-![GRU plot](results/documentation/GRU_plot.png)
+<figure>
+  <img src="results/documentation/LSTM_plot.png" alt="LSTM plot">
+  <figcaption style="text-align: center;">LSTM: accuracy and loss over epochs</figcaption>
+</figure>
+<br><br>
+
+<figure>
+  <img src="results/documentation/GRU_plot.png" alt="GRU plot">
+  <figcaption style="text-align: center;">GRU: accuracy and loss over epochs</figcaption>
+</figure>
+<br><br>
+
+
+
+|                             | RNN           | LSTM         | GRU          |
+| --------------------------- | ------------- | ------------ | ------------ |
+| AVERAGE LOSS                | 1.17          | 0.98         | 1.02         |
+| PERPLEXITY                  | 3.21          | 2.68         | 2.77         |
+| ACCURACY after 200 epochs   | 0.68          | 0.68         | 0.69         |
+
+
+<br><br>
+## Appendix
+
+<figure>
+  <img src="results/documentation/RNN_model_summary.png" alt="RNN model summary">
+  <figcaption style="text-align: center;">RNN: model summary</figcaption>
+</figure>
+<br><br>
+
+<figure>
+  <img src="results/documentation/LSTM_model_summary.png" alt="LSTM model summary">
+  <figcaption style="text-align: center;">LSTM: model summary</figcaption>
+</figure>
+<br><br>
+
+<figure>
+  <img src="results/documentation/GRU_model_summary.png" alt="GRU model summary">
+  <figcaption style="text-align: center;">GRU: model summary</figcaption>
+</figure>
+<br><br>

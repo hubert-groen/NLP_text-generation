@@ -2,3 +2,4 @@ checkpoints_GRU/
 training_checkpoints/
 venv/
 checkpoints_*/
+*.html

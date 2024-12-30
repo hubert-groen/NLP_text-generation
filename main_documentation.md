@@ -94,10 +94,20 @@ Celem niniejszego projektu było zaimplementowanie modelu do generacji tekstu, b
 | AVERAGE LOSS                | 1.17          | 0.98         | 1.02         |
 | PERPLEXITY                  | 3.21          | 2.68         | 2.77         |
 | ACCURACY after 200 epochs   | 0.68          | 0.68         | 0.69         |
+</figure>
+<br><br>
+
+Wszystkie trzy modele osiągnęły zbliżoną dokładność po 200 epokach (około 68-69%), co sugeruje, że każdy z nich ma potencjał do generowania tekstu przy odpowiednim dostrojeniu. Modele LSTM i GRU wykazały jednak niższą średnią wartość straty (Average Loss), więc lepiej minimalizowały błąd w trakcie treningu w porównaniu do klasycznego RNN. LSTM osiągnął najniższą wartość średniej straty (średnia funkcja entropii krzyżowej) równą 0.98, co potwierdza jego zdolność do przewidywania kolejnych znaków w tekście z największą precyzją.
+
+Wskaźnik perplexity dodatkowo potwierdza te wnioski. Jest on eksponentem funkcji straty i interpretuje, jak dobrze model przewiduje sekwencje – im mniejsza wartość, tym większa pewność prognoz. LSTM osiągnął tu wartość 2.68, co czyni go najefektywniejszym modelem w tym eksperymencie. GRU, z wartością 2.77, również wypada bardzo dobrze, natomiast RNN, ze wskaźnikiem 3.21, pozostaje w tyle, co wskazuje na ograniczenia w modelowaniu długoterminowych zależności. LSTM i GRU szybciej redukują stratę w początkowych epokach, co przekłada się na ich lepszą stabilność w modelowaniu złożonych wzorców. Ostateczna strata jest najstabilniejsza w przypadku LSTM.
+
+Wyniki eksperymentu mogłyby być lepsze przy zastosowaniu bardziej rozbudowanych modeli z większą liczbą neuronów w warstwach ukrytych lub większą liczbą warstw. Niemniej jednak takie zmiany wymagają większej mocy obliczeniowej i mogłyby prowadzić do przetrenowania modeli. Współczesne architektury, takie jak Transformery (np. GPT), generują bardziej spójny i złożony tekst, ponieważ wykorzystują mechanizm uwagi (attention), który pozwala modelować globalne zależności w sekwencjach. 
 
 
 <br><br>
 ## Appendix
+
+Poniżej zostały zamieszczone szczegółowe parametry modeli.
 
 <figure>
   <img src="results/documentation/RNN_model_summary.png" alt="RNN model summary">

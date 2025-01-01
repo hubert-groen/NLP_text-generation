@@ -107,7 +107,25 @@ Wyniki eksperymentu mogłyby być lepsze przy zastosowaniu bardziej rozbudowanyc
 <br><br>
 ## Appendix
 
-Poniżej zostały zamieszczone szczegółowe parametry modeli.
+Poniżej zostały zamieszczone przykłady generowanego tekstu oraz szczegółowe parametry poszczególnych. modeli.
+
+<figure>
+  <img src="results/documentation/RNN_example.png" alt="RNN example">
+  <figcaption style="text-align: center;">RNN: generation example</figcaption>
+</figure>
+<br><br>
+
+<figure>
+  <img src="results/documentation/LSTM_example.png" alt="LSTM example">
+  <figcaption style="text-align: center;">LSTM: generation example</figcaption>
+</figure>
+<br><br>
+
+<figure>
+  <img src="results/documentation/GRU_example.png" alt="GRU example">
+  <figcaption style="text-align: center;">GRU: generation example</figcaption>
+</figure>
+<br><br>
 
 <figure>
   <img src="results/documentation/RNN_model_summary.png" alt="RNN model summary">

@@ -8,7 +8,7 @@
 *   Marek Rospond
 *   Hubert Groen
 
-
+[REPOZYTORIUM](https://github.com/hubert-groen/NLP_text-generation)
 
 ## Cel projektu
 Celem niniejszego projektu było zaimplementowanie modelu do generacji tekstu, bazującego na sieciach rekurencyjnych (RNN) z użyciem biblioteki TensorFlow. Projekt pozwala na:
